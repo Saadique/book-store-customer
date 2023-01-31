@@ -1,28 +1,44 @@
 import React from 'react'
-import { Card, CardMedia, CardContent, CardActions, Typography, Button, CardActionArea } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import useStyles from './styles';
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
 const Product = ({ book, onAddToCart }) => {
   const classes = useStyles();
   return (
-    <Card className={classes.root}>
-      <Link to={`product-view/${book.id}`} >
-        <CardActionArea>
-          <CardMedia className={classes.media} image='https://media.istockphoto.com/id/1355271332/photo/christmas-gift-box-with-craft-decor-and-vintage-book.jpg?s=612x612&w=is&k=20&c=a8c__6eZYg4Xjqe1ZjNkX0PliAaRxILgCrR81z0Wjtc=' title={book.title} />
-        </CardActionArea>
-      </Link>
-      <CardContent>
-        <div className={classes.cardContent}>
-          <Typography variant="h6">
+
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <Link to={`product-view/${book.id}`} >
+          <CardMedia
+            component="img"
+            height="140"
+            image={book.image}
+            alt="green iguana"
+          />
+        </Link>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
             {book.title}
           </Typography>
-          <Typography variant="h6" color="secondary">
-            $<b>100</b>
+          <Typography variant="body1" color="text.secondary">
+            Author - {book.author}
           </Typography>
-        </div>
-      </CardContent>
+          <Typography variant="body1" color="text.secondary">
+            ISBN - {book.isbn}
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
+            Genre - {book.genre}
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
+            Published - {book.published}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
     </Card>
   )
 }

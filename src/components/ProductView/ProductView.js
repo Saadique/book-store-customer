@@ -37,12 +37,12 @@ const ProductView = () => {
           <Typography variant="h2"><b>{book.title}</b></Typography>
           <hr />
           <Typography variant="p" dangerouslySetInnerHTML={createMarkup(book.description)} />
-          <Typography variant="h3" color="secondary" >Price: <b> {book.price} </b> </Typography>
+          <Typography variant="h3" color="secondary" ></Typography>
           <br />
           <Grid container spacing={4}>
             <Grid item xs={12}>
-              <Button size="large" className="custom-button" component={Link} to='/' >
-                Continue Shopping
+              <Button size="large" className="custom-button">
+                Buy Now
               </Button>
             </Grid>
           </Grid>
